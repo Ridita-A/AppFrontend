@@ -3,9 +3,9 @@
     "id": 1,
     "start": { "name": "House #18, Road 6, Sector 5, Uttara", "coords": { "lat": 23.8800, "lng": 90.3980 } },
     "destination": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.948353860919553, "lng":  90.37927342914683 } },
-    "creator": { "name": "Saba Atharique", "handle": "@saba130" },
+    "creator": { "name": "Saba Atharique", "handle": "@saba130", "profilePicture": "https://picsum.photos/id/130/200/300" },
     "partners": [
-      { "name": "Ridita Alam", "handle": "@ridita110",  "start": { "name": "BNS Center, Uttara", "coords": { "lat": 23.87113474446341, "lng":  90.40017455524504 } }, "destination": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.948353860919553, "lng":  90.37927342914683 } } }
+      { "name": "Ridita Alam", "handle": "@ridita110", "profilePicture": "https://picsum.photos/id/110/200/300",  "start": { "name": "BNS Center, Uttara", "coords": { "lat": 23.87113474446341, "lng":  90.40017455524504 } }, "destination": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.948353860919553, "lng":  90.37927342914683 } } }
     ],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "173.33",
@@ -19,10 +19,10 @@
     "id": 2,
     "start": { "name": "Bangladesh Open University, Boardbazar", "coords": { "lat": 23.95156895057167, "lng": 90.38127036756632 } },
     "destination": { "name": "Capawcino, 27 Dhanmondi", "coords": { "lat": 23.7440, "lng": 90.3761 } },
-    "creator": { "name": "Ridita Alam", "handle": "@ridita110" },
+    "creator": { "name": "Ridita Alam", "handle": "@ridita110", "profilePicture": "https://picsum.photos/id/110/200/300" },
     "partners": [
-      { "name": "Rahatut Tahrim Mounota", "handle": "@mounota122" },
-      { "name": "Saba Atharique", "handle": "@saba130" }
+      { "name": "Rahatut Tahrim Mounota", "handle": "@mounota122", "profilePicture": "https://picsum.photos/id/122/200/300" },
+      { "name": "Saba Atharique", "handle": "@saba130", "profilePicture": "https://picsum.photos/id/130/200/300" }
     ],
     "date": { "day": "7 October", "time": "2:30 PM" },    
     "fare": "80.25",
@@ -36,10 +36,10 @@
     "id": 3,
     "start": { "name": "Tokyo Kitchen, House 56/B, Banani", "coords": { "lat": 23.7805, "lng": 90.4001 } },
     "destination": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.948353860919553, "lng":  90.37927342914683 } },
-    "creator": { "name": "Rahatut Tahrim Mounota", "handle": "@mounota122" },
+    "creator": { "name": "Rahatut Tahrim Mounota", "handle": "@mounota122", "profilePicture": "https://picsum.photos/id/110/200/300" },
     "partners": [
-      { "name": "Ridita Alam", "handle": "@ridita110" },
-      { "name": "Saba Atharique", "handle": "@saba130" }
+      { "name": "Ridita Alam", "handle": "@ridita110", "profilePicture": "https://picsum.photos/id/110/200/300" },
+      { "name": "Saba Atharique", "handle": "@saba130", "profilePicture": "https://picsum.photos/id/130/200/300" }
     ],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "100.50",
@@ -53,7 +53,7 @@
     "id": 4,
     "start": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.9478, "lng": 90.3745 } },
     "destination": { "name": "North South University, Block C, Bashundhara R/A", "coords": { "lat": 23.8200, "lng": 90.4200 } },
-    "creator": { "name": "Tahmid Zubayer", "handle": "@tzubayer" },
+    "creator": { "name": "Tahmid Zubayer", "handle": "@tzubayer", "profilePicture": "https://picsum.photos/id/136/200/300" },
     "partners": [],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "20.00",
@@ -67,10 +67,10 @@
     "id": 5,
     "start": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.9478, "lng": 90.3745 } },
     "destination": { "name": "Star Kabab, Road 11, Banani", "coords": { "lat": 23.7850, "lng": 90.4040 } },
-    "creator": { "name": "Mueed Sami", "handle": "@mueed_s" },
+    "creator": { "name": "Mueed Sami", "handle": "@mueed_s", "profilePicture": "https://picsum.photos/id/149/200/300" },
     "partners": [
-      { "name": "Saba Atharique", "handle": "@saba130" },
-      { "name": "Ridita Alam", "handle": "@ridita110" }
+      { "name": "Saba Atharique", "handle": "@saba130", "profilePicture": "https://picsum.photos/id/130/200/300" },
+      { "name": "Ridita Alam", "handle": "@ridita110", "profilePicture": "https://picsum.photos/id/110/200/300" }
     ],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "95.00",
@@ -84,9 +84,9 @@
     "id": 6,
     "start": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.9478, "lng": 90.3745 } },
     "destination": { "name": "Gulshan 1 Circle", "coords": { "lat": 23.7800, "lng": 90.4000 } },
-    "creator": { "name": "Ridita Alam", "handle": "@ridita110" },
+    "creator": { "name": "Ridita Alam", "handle": "@ridita110", "profilePicture": "https://picsum.photos/id/110/200/300" },
     "partners": [
-      { "name": "Tahmid Zubayer", "handle": "@tzubayer" }
+      { "name": "Tahmid Zubayer", "handle": "@tzubayer", "profilePicture": "https://picsum.photos/id/136/200/300" }
     ],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "140.75",
@@ -100,9 +100,9 @@
     "id": 7,
     "start": { "name": "House #9, Sector 4, Uttara", "coords": { "lat": 23.8850, "lng": 90.3950 } },
     "destination": { "name": "Islamic University of Technology, Boardbazar", "coords": { "lat": 23.948353860919553, "lng":  90.37927342914683 } },
-    "creator": { "name": "Saba Atharique", "handle": "@saba130" },
+    "creator": { "name": "Saba Atharique", "handle": "@saba130", "profilePicture": "https://picsum.photos/id/130/200/300" },
     "partners": [
-      { "name": "Rahatut Tahrim Mounota", "handle": "@mounota122" }
+      { "name": "Rahatut Tahrim Mounota", "handle": "@mounota122", "profilePicture": "https://picsum.photos/id/122/200/300" }
     ],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "65.50",
@@ -116,7 +116,7 @@
     "id": 8,
     "start": { "name": "Mirpur 12 Bus Stand", "coords": { "lat": 23.7900, "lng": 90.3600 } },
     "destination": { "name": "Bangladesh Open University, Boardbazar", "coords": { "lat": 23.95156895057167, "lng": 90.38127036756632 } },
-    "creator": { "name": "Tahmid Zubayer", "handle": "@tzubayer" },
+    "creator": { "name": "Tahmid Zubayer", "handle": "@tzubayer", "profilePicture": "https://picsum.photos/id/136/200/300" },
     "partners": [],
     "date": { "day": "7 October", "time": "2:30 PM" },
     "fare": "20.00",

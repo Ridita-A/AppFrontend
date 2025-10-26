@@ -12,6 +12,7 @@ import Octicons from '@expo/vector-icons/Octicons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 import users from '../data/userData.json';
+import ProfileImage from '../components/ProfileImage'
 
 export default function RideDetailsCard({ ride, ongoing = false, join = false }) {
   const router = useRouter();
@@ -85,7 +86,7 @@ export default function RideDetailsCard({ ride, ongoing = false, join = false })
           style={styles.creatorRow}
           onPress={() => router.push(`user/${creator.handle}`)}
         >
-          <Text style={{ fontSize: 30 }}>👤 </Text>
+          <ProfileImage profilePicture={creator.profilePicture} name={creator.name} style={{ width: 40, height: 40, borderRadius: 20, marginRight: 10 }} />
           <View>
             <Text style={styles.creatorName}>{creator.name}</Text>
             <Text style={styles.handle}>{creator.handle}</Text>
@@ -123,7 +124,7 @@ export default function RideDetailsCard({ ride, ongoing = false, join = false })
                     style={styles.creatorRow}
                     onPress={() => router.push(`/user/${partner.handle}`)}
                   >
-                    <Text style={{ fontSize: 30 }}>👤 </Text>
+                    <ProfileImage profilePicture={partner.profilePicture} name={partner.name} style={{ width: 40, height: 40, borderRadius: 20, marginRight: 10 }} />
                     <View>
                       <Text style={styles.creatorName}>{partner.name}</Text>
                       <Text style={styles.handle}>{partner.handle}</Text>

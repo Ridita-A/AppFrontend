@@ -3,11 +3,13 @@ import { StyledText as Text } from '../../../../../components/StyledText'
 import { StyledScrollView as ScrollView } from '../../../../../components/StyledScrollView'
 import { StyledCard as Card} from '../../../../../components/StyledCard'
 import { StyledLink } from '../../../../../components/StyledLink'
+import Ionicons from '@expo/vector-icons/Ionicons'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import users from '../../../../../data/userData.json'
 import rides from '../../../../../data/rideData.json'
 import React from 'react'
+import ProfileImage from '../../../../../components/ProfileImage'
 
 const UserDetails = () => {
   const { handle } = useLocalSearchParams();
@@ -34,9 +36,11 @@ const UserDetails = () => {
         <Text style={{fontSize: 16, fontWeight: 'semibold'}}>Back</Text>
       </TouchableOpacity>
 
-      <View style={styles.imgPlaceholder}>
-        <Text>Image</Text>
-      </View>
+      <ProfileImage
+        profilePicture={user.profilePicture}
+        name={user.name}
+        style={{ width: 150, height: 150, borderRadius: 75, alignSelf: 'center', marginVertical: 20 }}
+      />
 
       <Card>
         <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start'}}>
@@ -45,6 +49,10 @@ const UserDetails = () => {
             <Text style={styles.handle}>{user.handle}</Text>
             <Text style={styles.bio}>{user.bio || "Hello, fellow ride sharer!"}</Text>
           </View>
+
+          <TouchableOpacity style={{ paddingHorizontal: 10, marginRight: 15 }} onPress={() => router.push({ pathname: '/(chat)/chatScreen', params: { handle: user.handle } })}>
+            <Ionicons name="chatbubble-ellipses" size={28} color="#e63e4c" style={styles.icon} />
+          </TouchableOpacity>
         </View>
 
         {/* stats */}
@@ -95,14 +103,6 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  imgPlaceholder: {
-    height: 150,
-    width: '50%',
-    backgroundColor: '#eee',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   userInfo: {
     flex: 1,

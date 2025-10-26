@@ -13,6 +13,7 @@ import { Video } from 'expo-video';
 import users from '../../../data/userData.json';
 import * as Linking from 'expo-linking';
 import { StyledText as Text } from '../../../components/StyledText';
+import ProfileImage from '../../../components/ProfileImage';
 
 
 const SwipeableBubble = ({ children, message, onReply, position }) => {
@@ -83,6 +84,12 @@ export default function ChatScreen() {
       createdAt: new Date('2025-10-15T10:00:00'),
       user: { _id: 2, name: user.name, avatar: user.profilePicture },
     },
+    {
+      _id: 2,
+      text: 'Hello!',
+      createdAt: new Date('2025-10-15T10:00:00'),
+      user: { _id: 1, name: 'You', avatar: users[0].profilePicture },
+    },
   ]);
 
   // Keyboard listener
@@ -103,32 +110,17 @@ export default function ChatScreen() {
           setReplyingTo(null);
         }
 
-      setMessages(previous => GiftedChat.append(previous, newMsgs));
+      const messagesWithAvatar = newMsgs.map(msg => ({
+        ...msg,
+        user: {
+          ...msg.user,
+          avatar: users[0].profilePicture,
+        },
+      }));
 
-      if (!newMsgs[0].image && !newMsgs[0].document) {
-        // Simulated replies
-        /*setTimeout(() => {
-          const replyMessage = {
-            _id: Date.now() + 1,
-            text: "Hello! Ami saba.",
-            createdAt: new Date(),
-            user: { _id: 2, name: user.name, avatar: user.profilePicture },
-          };
-          setMessages(prev => GiftedChat.append(prev, [replyMessage]));
-        }, 1500);
-
-        setTimeout(() => {
-          const replyMessage2 = {
-            _id: Date.now() + 2,
-            text: 'Hello! Ami mounotaa.',
-            createdAt: new Date(),
-            user: { _id: 2, name: user.name, avatar: user.profilePicture },
-          };
-          setMessages(prev => GiftedChat.append(prev, [replyMessage2]));
-        }, 3000);*/
-      }
+      setMessages(previous => GiftedChat.append(previous, messagesWithAvatar));
     },
-    [replyingTo, user.name, user.profilePicture]
+    [replyingTo]
   );
 
 
@@ -229,25 +221,6 @@ export default function ChatScreen() {
           animRef.pulse(800);
         }
     }
-  };
-
-  // Get initials
-  const getInitials = (name) => {
-    if (!name) return '';
-    const names = name.split(' ');
-    return names.map(n => n[0]).join('').toUpperCase();
-  };
-
-  // Avatar rendering (no avatar for sender)
-  const renderAvatar = (props) => {
-    const { user } = props.currentMessage;
-    if (user._id === 1) return null; 
-    if (user.avatar) return <Image source={{ uri: user.avatar }} style={styles.avatar} />;
-    return (
-      <View style={[styles.avatar, styles.initialsAvatar]}>
-        <Text style={styles.initialsText}>{getInitials(user.name)}</Text>
-      </View>
-    );
   };
 
   // Bubble styling
@@ -498,6 +471,32 @@ export default function ChatScreen() {
   };
 
 
+  //Delete message
+  const deleteMessage = (id) => {
+    setMessages((previousMessages) =>
+      previousMessages.filter((msg) => msg._id !== id)
+    );
+  };
+
+  const handleLongPress = (context, message) => {
+    Alert.alert(
+      "Message Options",
+      "What do you want to do?",
+      [
+        {
+          text: "Delete Message",
+          onPress: () => deleteMessage(message._id),
+          style: "destructive",
+        },
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+      ]
+    );
+  };
+
+
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -506,27 +505,11 @@ export default function ChatScreen() {
           <Ionicons name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
 
-        {/* Avatar or initials */}
-        {user.profilePicture ? (
-          <Image
-            source={{ uri: user.profilePicture }}
-            style={{ width: 40, height: 40, borderRadius: 20, marginRight: 10 }}
-          />
-        ) : (
-          <View
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
-              backgroundColor: '#E5E5E5',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginRight: 10,
-            }}
-          >
-            <Text style={{ color: '#000', fontWeight: 'bold' }}>{getInitials(user.name)}</Text>
-          </View>
-        )}
+        <ProfileImage
+          profilePicture={user.profilePicture}
+          name={user.name}
+          style={{ width: 40, height: 40, borderRadius: 20, marginRight: 10 }}
+        />
 
         <View style={{ width: '80%' }}>
           <Text style={styles.name}>{user.name}</Text>
@@ -548,7 +531,13 @@ export default function ChatScreen() {
         inverted={true}
         renderBubble={renderBubble}
         renderDay={renderDay}
-        renderAvatar={renderAvatar}
+        renderAvatar={(props) => (
+          <ProfileImage
+            profilePicture={props.currentMessage.user.avatar}
+            name={props.currentMessage.user.name}
+            style={styles.avatar}
+          />
+        )}
         showUserAvatar={false} 
         renderInputToolbar={renderInputToolbar}
         renderSend={renderSend}
@@ -556,6 +545,7 @@ export default function ChatScreen() {
         renderMessageImage={renderMessageImage}
         renderMessageVideo={renderMessageVideo}
         renderCustomView={renderCustomView}
+        onLongPress={handleLongPress}
         listViewProps={{
           ref: flatListRef,
         }}
@@ -739,4 +729,4 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     flexWrap: 'wrap',
   },
-}); 
+});

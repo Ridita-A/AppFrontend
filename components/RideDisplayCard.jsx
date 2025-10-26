@@ -9,6 +9,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Octicons from '@expo/vector-icons/Octicons';
 import { useRouter } from 'expo-router'; 
+import ProfileImage from '../components/ProfileImage'
 
 export default function RideDisplayCard({ ride, join = false, create = false, ongoing = false, onPress }) {
   const [isRequested, setIsRequested] = useState(false);
@@ -44,7 +45,7 @@ export default function RideDisplayCard({ ride, join = false, create = false, on
       {/* Ride creator */}
       {(join || create || ongoing) && (
         <View style={styles.creatorRow}>
-          <Text style={{ fontSize: 30 }}>👤 </Text>
+          <ProfileImage profilePicture={ride.creator.profilePicture} name={ride.creator.name} style={{ width: 40, height: 40, borderRadius: 20, marginRight: 10 }} />
           <View>
             <Text style={{ fontWeight: 'semibold', fontSize: 16 }}>{ride.creator.name}</Text>
             <Text style={styles.handle}>{ride.creator.handle}</Text>

@@ -9,7 +9,8 @@
       "department": "Computer Science and Engineering",
       "rating": "4.5",
       "gender": "Female",
-      "address": "House #18, Road 6, Sector 5, Uttara"
+      "address": "House #18, Road 6, Sector 5, Uttara",
+      "profilePicture": "https://picsum.photos/id/130/200/300"
     },
     {
       "name": "Ridita Alam",
@@ -21,7 +22,8 @@
       "department": "Electrical and Electronic Engineering",
       "rating": "4.9",
       "gender": "Female",
-      "address": "House #10, Road 3, Dhanmondi"
+      "address": "House #10, Road 3, Dhanmondi",
+      "profilePicture": "https://picsum.photos/id/110/200/300"
     },
     {
       "name": "Rahatut Tahrim Mounota",
@@ -33,7 +35,8 @@
       "department": "Mechanical Engineering",
       "rating": "4.8",
       "gender": "Female",
-      "address": "House 56/B, Banani"
+      "address": "House 56/B, Banani",
+      "profilePicture": "https://picsum.photos/id/122/200/300"
     },
     {
       "name": "Tahmid Zubayer",
@@ -45,7 +48,8 @@
       "department": "Civil and Environmental Engineering",
       "rating": "4.3",
       "gender": "Male",
-      "address": "Block C, Bashundhara R/A"
+      "address": "Block C, Bashundhara R/A",
+      "profilePicture": "https://picsum.photos/id/136/200/300"
     },
     {
       "name": "Mueed Sami",
@@ -57,7 +61,7 @@
       "department": "Computer Science",
       "rating": "3.8",
       "gender": "Male",
-      "address": "Road 7, Niketon, Gulshan"
+      "address": "Road 7, Niketon, Gulshan",
+      "profilePicture": "https://picsum.photos/id/149/200/300"
     }
   ]
-  

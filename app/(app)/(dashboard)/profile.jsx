@@ -6,6 +6,7 @@ import { StyledLink } from '../../../components/StyledLink'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 import users from '../../../data/userData.json'
 import rides from '../../../data/rideData.json'
+import ProfileImage from '../../../components/ProfileImage'
 
 const UserProfile = () => {
   const user = users[0];
@@ -24,9 +25,11 @@ const UserProfile = () => {
 
   return (
     <ScrollView>
-      <View style={styles.imgPlaceholder}>
-        <Text>Image</Text>
-      </View>
+      <ProfileImage
+        profilePicture={user.profilePicture}
+        name={user.name}
+        style={{ width: 150, height: 150, borderRadius: 75, alignSelf: 'center', marginVertical: 20 }}
+      />
 
       <Card>
         <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start'}}>
@@ -85,14 +88,6 @@ const styles = StyleSheet.create({
     fontWeight: 'semibold',
     fontSize: 16,
     color: 'red',
-  },
-  imgPlaceholder: {
-    height: 150,
-    width: '50%',
-    backgroundColor: '#eee',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   userInfo: {
     flex: 1,
