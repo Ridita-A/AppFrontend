@@ -1,4 +1,4 @@
-import { TouchableOpacity, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet, View, Alert } from 'react-native'
 import { StyledText as Text } from '../../../../components/StyledText'
 import { StyledScrollView as ScrollView } from '../../../../components/StyledScrollView'
 import RideDetailsCard from '../../../../components/RideDetailsCard'
@@ -7,6 +7,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import RouteMap from '../../../../components/RouteMap'
 import rides from '../../../../data/rideData.json'
 import React  from 'react';
+import { StyledButton } from '../../../../components/StyledButton';
 
 
 const RideDetails = () => {
@@ -23,6 +24,28 @@ const RideDetails = () => {
     );
   }
 
+  const handleEdit = () => {
+    router.push(`/(createRide)/editRide?id=${id}`);
+  };
+
+  const handleDelete = () => {
+    Alert.alert(
+      "Delete Ride",
+      "Are you sure you want to delete this ride?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => {
+          // API call to delete the ride.
+          console.log(`Ride with ID ${id} deleted.`);
+          router.back();
+        } }
+      ]
+    );
+  };
+
   return (
     <ScrollView>
       <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
@@ -33,7 +56,17 @@ const RideDetails = () => {
       <RouteMap ride={ride} />
 
       <RideDetailsCard ride={ride} ongoing={ride.id <= 2} ></RideDetailsCard>
-      
+
+      {ride.id <= 2 && (
+        <View style={styles.buttonContainer}>
+          <View style={{flex: 1}}>
+            <StyledButton onPress={handleEdit} title="Edit "></StyledButton>
+          </View>
+          <View style={{flex: 1}}>
+            <StyledButton style={{backgroundColor: '#FF7272'}} onPress={handleDelete} title="Delete"></StyledButton>
+          </View>
+        </View>
+      )}
     </ScrollView>
   );
 };
@@ -44,5 +77,12 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: 'row',
     alignItems: 'center',
-  }
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 20,
+    paddingHorizontal: 20,
+    gap: 20,
+  },
 });

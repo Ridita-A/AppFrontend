@@ -4,8 +4,11 @@ import { StyledCardButton as CardButton } from '../../../components/StyledCardBu
 import { StyledScrollView as ScrollView } from '../../../components/StyledScrollView';
 import React, { useState } from 'react';
 import notifications from '../../../data/notificationData.json';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-const Notifications = () => {
+
+
+function NotificationsTab() {
   const [notificationData, setNotificationData] = useState(notifications);
 
   const handleAccept = (id) => {
@@ -50,7 +53,7 @@ const Notifications = () => {
     }
   };
 
-  // ✅ Empty state fallback (from your first version)
+  // Empty state fallback 
   if (notificationData.length === 0) {
     return (
       <View style={styles.emptyContainer}>
@@ -62,8 +65,7 @@ const Notifications = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Notifications</Text>
-
+      
       {notificationData.map((notification) => (
         <CardButton key={notification.id}>
           <View style={styles.notificationContent}>
@@ -129,7 +131,33 @@ const Notifications = () => {
   );
 };
 
-export default Notifications;
+function ChatsTab() {
+  return (
+    <View style={styles.tabContent}>
+      <Text style={styles.text}>Chats</Text>
+    </View>
+  );
+}
+
+const Tab = createMaterialTopTabNavigator();
+
+export default function NotificationScreen() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarLabelStyle: { fontSize: 15, fontWeight: '600' },
+        tabBarIndicatorStyle: { backgroundColor: '#000000ff', height: 3 },
+        tabBarActiveTintColor: '#000000ff',
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: { backgroundColor: '#f8f8f8' },
+      }}
+    >
+      <Tab.Screen name="Notifications" component={NotificationsTab} />
+      <Tab.Screen name="Chats" component={ChatsTab} />
+    </Tab.Navigator>
+  );
+}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -251,4 +279,18 @@ const styles = StyleSheet.create({
     color: '#888',
     marginTop: 6,
   },
+
+  //Tabs
+  tabContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  text: {
+    fontSize: 18,
+  },
 });
+
+
+
